@@ -1,4 +1,4 @@
-vFlask==3.0.3
+Flask==3.0.3
 gunicorn==21.2.0
 gradio_client==0.16.4
 pillow==10.4.0
