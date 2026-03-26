@@ -1,19 +1,19 @@
-flask==3.0.3
-streamlit==1.27.0
+flask
+streamlit
 
-tensorflow==2.19.0
-numpy==1.26.4
-pillow==9.5.0
-matplotlib==3.8.0
+tensorflow
+numpy
+pillow
+matplotlib
 
 # LangChain Core
-langchain == 1.0.0
-langchain-core == 1.0.0
-langchain-community==0.4
+langchain
+langchain-core 
+langchain-community
 
 # Hugging Face Integration
-langchain-huggingface == 1.0.0
-transformers == 4.57.1
+langchain-huggingface 
+transformers 
 huggingface-hub 
 
 # Environment Variable Management
@@ -21,5 +21,5 @@ python-dotenv
 
 grandalf
 
-reportlab==4.1.0
+reportlab
 gradio_client
