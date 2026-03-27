@@ -4,13 +4,16 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import PydanticOutputParser
 from pydantic import BaseModel, Field
 from typing import List
+import os 
 
-load_dotenv()
+HF_TOKEN = os.getenv("HF_API_TOKEN")
 
 llm = HuggingFaceEndpoint(
     repo_id="deepseek-ai/DeepSeek-V3.1",
     task="text-generation",
-    temperature=0.7
+    temperature=0.7,
+    huggingfacehub_api_token=HF_TOKEN   
+    
 )
 
 model = ChatHuggingFace(llm=llm)
