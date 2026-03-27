@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for,session,send_file
-from tensorflow import keras 
-import tensorflow as tf
-from keras.models import load_model
-from keras.preprocessing.image  import img_to_array
+#from tensorflow import keras 
+#import tensorflow as tf
+#from keras.models import load_model
+#from keras.preprocessing.image  import img_to_array
 import numpy as np
 from PIL import Image
 import os
@@ -13,14 +13,14 @@ from flask import Flask, request, send_file
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 import io
-from Ai.report_chain import generate_report 
-from Ai.location_fecth import get_location 
+from backend.ai.report_chain import generate_report 
+from backend.ai.location_fecth import get_location 
 
 from pydantic import BaseModel
 from reportlab.lib.utils import ImageReader
 from huggingface_hub import hf_hub_download
 
-from gradio_client import Client, handle_file
+from gradio_client import Client
 
 
 
@@ -28,11 +28,17 @@ from gradio_client import Client, handle_file
 # App setup
 # ---------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+STATIC_DIR = os.path.join(BASE_DIR, "static")
+
+print("TEMPLATE DIR:", TEMPLATE_DIR)
+print("FILES INSIDE TEMPLATE:", os.listdir(TEMPLATE_DIR) if os.path.exists(TEMPLATE_DIR) else "NOT FOUND")
+
 
 app = Flask(
     __name__,
-    template_folder=os.path.join(BASE_DIR, "../git branch -M mainfrontend/templates"),
-    static_folder=os.path.join(BASE_DIR, "../frontend/static")
+    template_folder=TEMPLATE_DIR,
+    static_folder=STATIC_DIR
 )
 
 app.secret_key = "skinai_secret_key"
@@ -96,12 +102,13 @@ def predict_acne(img_path):
 
 '''
 
-client = Client("ParthHuggFace/modelbackedn")
+
 
 def predict_acne(img_path):
     try:
+        client = Client("ParthHuggFace/modelbackedn")
         result = client.predict(
-            handle_file(img_path),
+            img_path,
             api_name="/predict"
         )
 
