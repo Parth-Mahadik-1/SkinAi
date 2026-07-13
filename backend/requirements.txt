@@ -1,41 +1,18 @@
-# ===============================
-# Flask Backend
-# ===============================
 Flask==3.0.3
 gunicorn
 
-# ===============================
-# Data Processing
-# ===============================
-numpy==1.26.4
-pillow==9.5.0
+numpy
+pillow
 
-# ===============================
-# LangChain
-# ===============================
 langchain==1.0.0
 langchain-core==1.0.0
-langchain-community==0.4.0
-langchain-huggingface==1.0.0
+langchain-community
+langchain-huggingface
 
-# ===============================
-# Hugging Face Integration
-# ===============================
-transformers==4.57.1
+transformers
 huggingface-hub
-gradio_client
+gradio-client
 
-# ===============================
-# Environment Variables
-# ===============================
-python-dotenv==1.0.1
-
-# ===============================
-# PDF Generation
-# ===============================
-reportlab==4.1.0
-
-# ===============================
-# Validation
-# ===============================
+python-dotenv
+reportlab
 pydantic
