@@ -9,4 +9,4 @@ RUN pip install --no-cache-dir -r backend/requirements.txt
 
 EXPOSE 10000
 
-CMD ["gunicorn", "--bind", "0.0.0.0:10000", "backend.app:app"]
+CMD ["python", "backend/app.py"]
