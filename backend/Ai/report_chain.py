@@ -10,7 +10,7 @@ import os
 
 load_dotenv()
 
-HUGGINGFACE_API_TOKEN=os.getenv("HF_TOKEN")
+HUGGINGFACE_API_TOKEN=os.getenv("HUGGINGFACE_API_TOKEN")
 
 llm = HuggingFaceEndpoint(
     repo_id="deepseek-ai/DeepSeek-V3.1",
