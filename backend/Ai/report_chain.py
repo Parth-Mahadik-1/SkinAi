@@ -15,7 +15,7 @@ HF_TOKEN = os.getenv("HF_TOKEN")
 llm = HuggingFaceEndpoint(
     repo_id="deepseek-ai/DeepSeek-V3.1",
     task="text-generation",
-    temperature=0.7
+    HUGGINGFACE_API_TOKEN=HF_TOKEN
 )
 
 model = ChatHuggingFace(llm=llm)
