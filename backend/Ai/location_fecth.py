@@ -5,7 +5,12 @@ from langchain_core.output_parsers import PydanticOutputParser
 from pydantic import BaseModel, Field
 from typing import List
 
+from dotenv import load_dotenv
+import os
+
 load_dotenv()
+
+HF_TOKEN = os.getenv("HF_TOKEN")
 
 llm = HuggingFaceEndpoint(
     repo_id="deepseek-ai/DeepSeek-V3.1",
