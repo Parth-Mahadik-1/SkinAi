@@ -10,12 +10,12 @@ import os
 
 load_dotenv()
 
-HF_TOKEN = os.getenv("HF_TOKEN")
+HUGGINGFACE_API_TOKEN=os.getenv("HF_TOKEN")
 
 llm = HuggingFaceEndpoint(
     repo_id="deepseek-ai/DeepSeek-V3.1",
     task="text-generation",
-    HUGGINGFACE_API_TOKEN=HF_TOKEN
+    HUGGINGFACE_API_TOKEN=HUGGINGFACE_API_TOKEN
 )
 
 model = ChatHuggingFace(llm=llm)
